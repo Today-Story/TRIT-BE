@@ -1,0 +1,17 @@
+networks:
+  deploy-network:
+    driver: bridge
+
+services:
+  dev-postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: deploy_postgres
+      POSTGRES_PASSWORD: deploy_postgres
+      POSTGRES_DB: deploy_postgres
+    volumes:
+      - ./data/deploy/postgres:/var/lib/postgresql/data
+    networks:
+      - deploy-network

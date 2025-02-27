@@ -1,0 +1,17 @@
+networks:
+  dev-network:
+    driver: bridge
+
+services:
+  dev-postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: dev_postgres
+      POSTGRES_PASSWORD: dev_postgres
+      POSTGRES_DB: dev_postgres
+    volumes:
+      - ./data/develop/postgres:/var/lib/postgresql/data
+    networks:
+      - dev-network

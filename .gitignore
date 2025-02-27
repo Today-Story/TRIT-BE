@@ -26,3 +26,4 @@ replay_pid*
 # Ignore IntelliJ IDEA
 .idea/
 *.iml
+data/
